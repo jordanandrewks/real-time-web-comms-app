@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Real-Time Web Comms | App",
+  title: "RealTime Web Comms | App",
   description: "Demo application showcasing different communication services, such APIs, SSE, WS, RMQ etc.",
 };
 
