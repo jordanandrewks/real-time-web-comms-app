@@ -9,10 +9,9 @@ import {
 } from "@/components/ui/card";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { log } from "console";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface Recipe {
   id: string;
@@ -24,17 +23,21 @@ interface Recipe {
 }
 
 async function getRecipes(): Promise<Recipe[]> {
-  const result = await fetch("http://localhost:4000/recipes", { cache: 'no-store' });
+  const result = await fetch("http://localhost:4000/recipes", {
+    cache: "no-store",
+  });
+
+  {
+    false && (await new Promise((resolve) => setTimeout(resolve, 2000)));
+  }
+
   return result.json();
 }
 
 const ShadcnCrashCourse = async () => {
-
-
   const recipes = await getRecipes();
 
   console.log(recipes);
-  
 
   return (
     <div className="m-20">
