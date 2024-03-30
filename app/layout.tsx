@@ -3,6 +3,7 @@ import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { theme } from '../theme';
 import './globals.css';
+import AppShellParent from '../components/AppShell/AppShellParent';
 
 export const metadata = {
   title: 'Web Comms Playground',
@@ -28,7 +29,9 @@ export default function RootLayout({ children }: { children: any }) {
       </head>
       {/* Move the page into here - then Have {children} in <AppShell.Main> */}
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme}>
+          <AppShellParent>{children}</AppShellParent>
+        </MantineProvider>
       </body>
     </html>
   );

@@ -30,7 +30,7 @@ export function ColorSchemeToggle() {
       {colorMode === 'dark' ? (
         <LuSunDim style={{ width: '60%', height: '60%' }} />
       ) : (
-        <IoMoonOutline style={{ width: '60%', height: '60%' }} />
+        <IoMoonOutline style={{ width: '50%', height: '50%' }} />
       )}
     </ActionIcon>
   );
