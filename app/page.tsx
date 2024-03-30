@@ -21,15 +21,35 @@ export default function HomePage() {
         padding="md"
       >
         <AppShell.Header>
-          <Flex mih={50} justify="flex-start" align="center" direction="row" wrap="wrap">
-            <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-            <div className="ml-20" >This Logo</div>
-          </Flex >
+          <Flex justify="space-between">
+            <Flex
+              className="ml-4 pt-2"
+              mih={50}
+              justify="flex-start"
+              align="center"
+              direction="row"
+              wrap="wrap"
+            >
+              <Burger
+                className="mr-3.5"
+                opened={opened}
+                onClick={toggle}
+                hiddenFrom="sm"
+                size="sm"
+              />
+              <div className="text-2xl font-bold font-questrial">COMMS PLAYGROUND</div>
+            </Flex>
+            <div>hello</div>
+          </Flex>
         </AppShell.Header>
 
         <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
 
-        <AppShell.Main>Main</AppShell.Main>
+        <AppShell.Main>
+          Main
+          <Welcome />
+          <ColorSchemeToggle />
+        </AppShell.Main>
       </AppShell>
     </>
   );
