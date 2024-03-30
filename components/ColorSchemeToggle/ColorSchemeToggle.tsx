@@ -9,10 +9,8 @@ export function ColorSchemeToggle() {
   const { setColorScheme } = useMantineColorScheme();
   const [colorMode, setColorMode] = useState('dark');
 
-  const sety = (colorScheme: string) => {
-    console.log(`${colorScheme}`);
-
-    if (colorScheme === 'dark') {
+  const toggleColorMode = () => {
+    if (colorMode === 'dark') {
       setColorMode('light');
       setColorScheme('light');
     } else {
@@ -23,7 +21,7 @@ export function ColorSchemeToggle() {
 
   return (
     <ActionIcon
-      onClick={() => sety(colorMode)}
+      onClick={() => toggleColorMode()}
       variant="default"
       size="xl"
       radius="md"

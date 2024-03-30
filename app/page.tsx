@@ -21,9 +21,9 @@ export default function HomePage() {
         padding="md"
       >
         <AppShell.Header>
-          <Flex justify="space-between">
+          <Flex className="pt-1" justify="space-between" align="center">
             <Flex
-              className="ml-4 pt-2"
+              className="ml-4"
               mih={50}
               justify="flex-start"
               align="center"
@@ -39,7 +39,9 @@ export default function HomePage() {
               />
               <div className="text-2xl font-bold font-questrial">COMMS PLAYGROUND</div>
             </Flex>
-            <div>hello</div>
+            <Flex className="pr-3">
+              <ColorSchemeToggle />
+            </Flex>
           </Flex>
         </AppShell.Header>
 
