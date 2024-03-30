@@ -1,0 +1,36 @@
+.
+├── LICENCE
+├── README.md
+├── app
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components
+│   ├── ColorSchemeToggle
+│   │   └── ColorSchemeToggle.tsx
+│   └── Welcome
+│       ├── Welcome.module.css
+│       ├── Welcome.story.tsx
+│       ├── Welcome.test.tsx
+│       └── Welcome.tsx
+├── docs
+│   └── project_tree.txt
+├── jest.config.cjs
+├── jest.setup.cjs
+├── next-env.d.ts
+├── next.config.mjs
+├── package-lock.json
+├── package.json
+├── postcss.config.cjs
+├── project_tree.txt
+├── public
+│   └── favicon.svg
+├── tailwind.config.ts
+├── test-utils
+│   ├── index.ts
+│   └── render.tsx
+├── theme.ts
+├── tsconfig.json
+└── yarn.lock
+
+8 directories, 26 files

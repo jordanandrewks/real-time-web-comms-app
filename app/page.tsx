@@ -23,8 +23,8 @@ export default function HomePage() {
         <AppShell.Header>
           <Flex mih={50} justify="flex-start" align="center" direction="row" wrap="wrap">
             <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-            <div >Logo</div>
-          </Flex>
+            <div className="ml-20" >This Logo</div>
+          </Flex >
         </AppShell.Header>
 
         <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
