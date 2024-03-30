@@ -26,6 +26,7 @@ export default function RootLayout({ children }: { children: any }) {
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
       </head>
+      {/* Move the page into here - then Have {children} in <AppShell.Main> */}
       <body>
         <MantineProvider theme={theme}>{children}</MantineProvider>
       </body>

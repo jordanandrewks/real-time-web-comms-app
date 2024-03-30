@@ -3,7 +3,7 @@ import React from 'react';
 import { Welcome } from '../components/Welcome/Welcome';
 import { ColorSchemeToggle } from '../components/ColorSchemeToggle/ColorSchemeToggle';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import { AppShell, Burger, Flex } from '@mantine/core';
+import { AppShell, Button, Burger, Flex } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 export default function HomePage() {
@@ -45,7 +45,12 @@ export default function HomePage() {
           </Flex>
         </AppShell.Header>
 
-        <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
+        <AppShell.Navbar p="md">
+          Navbar
+          <Button variant="subtle" color="gray">
+            Button
+          </Button>
+        </AppShell.Navbar>
 
         <AppShell.Main>
           Main
@@ -56,5 +61,3 @@ export default function HomePage() {
     </>
   );
 }
-
-// Header
