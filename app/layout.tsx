@@ -4,8 +4,8 @@ import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { theme } from '../theme';
 
 export const metadata = {
-  title: 'Mantine Next.js template',
-  description: 'I am using Mantine with Next.js!',
+  title: 'Web Comms Playground',
+  description: 'Web communication area for testing protocols!',
 };
 
 export default function RootLayout({ children }: { children: any }) {
@@ -13,6 +13,7 @@ export default function RootLayout({ children }: { children: any }) {
     <html lang="en">
       <head>
         <ColorSchemeScript />
+        {/* todo - Change favicon later. */}
         <link rel="shortcut icon" href="/favicon.svg" />
         <meta
           name="viewport"
