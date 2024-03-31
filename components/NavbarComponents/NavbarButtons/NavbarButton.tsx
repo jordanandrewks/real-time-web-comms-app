@@ -13,11 +13,9 @@ export default function NavbarButton({
 }) {
   return (
     <Link href={route} className="w-full" passHref>
-      {/* <div style={{ cursor: 'pointer' }}> */}
       <Button justify="left" fullWidth leftSection={icon} variant="default" mt="md">
         {title}
       </Button>
-      {/* </div> */}
     </Link>
   );
 }
