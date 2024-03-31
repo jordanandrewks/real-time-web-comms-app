@@ -9,7 +9,15 @@ export default function NavbarButton({
   icon: React.JSX.Element | undefined;
 }) {
   return (
-    <Button justify="left" fullWidth leftSection={icon} variant="default" mt="md">
+    <Button
+      component="a"
+      href=""
+      justify="left"
+      fullWidth
+      leftSection={icon}
+      variant="default"
+      mt="md"
+    >
       {title}
     </Button>
   );
