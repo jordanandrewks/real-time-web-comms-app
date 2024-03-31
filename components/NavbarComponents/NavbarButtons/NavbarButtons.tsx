@@ -13,12 +13,12 @@ const buttonRoutes: ButtonRouteConfig[] = [
   {
     icon: <AiOutlineApi size={20} />,
     title: 'API',
-    route: '',
+    route: '/',
   },
   {
     icon: <AiOutlineApi size={20} />,
     title: 'Other',
-    route: '',
+    route: '/rmq',
   },
 ];
 
@@ -26,7 +26,12 @@ export default function NavbarButtons() {
   return (
     <Flex gap="xs" justify="flex-start" align="flex-start" direction="column" wrap="wrap">
       {buttonRoutes.map((button) => (
-        <NavbarButton key={button.title} title={button.title} icon={button.icon} />
+        <NavbarButton
+          key={button.title}
+          title={button.title}
+          icon={button.icon}
+          route={button.route}
+        />
       ))}
     </Flex>
   );
