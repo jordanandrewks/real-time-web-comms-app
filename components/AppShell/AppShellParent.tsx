@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
-import { AppShell, Button, Burger, Flex } from '@mantine/core';
+import { AppShell, Burger, Flex } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
+import NavbarButtons from '../NavbarComponents/NavbarButtons/NavbarButtons';
 
 export default function AppShellParent({ children }: { children: any }) {
   const [opened, { toggle }] = useDisclosure();
@@ -45,12 +46,8 @@ export default function AppShellParent({ children }: { children: any }) {
         </AppShell.Header>
 
         <AppShell.Navbar p="md">
-          Navbar
-          <Button variant="subtle" color="gray">
-            Button
-          </Button>
+            <NavbarButtons />
         </AppShell.Navbar>
-
         <AppShell.Main>{children}</AppShell.Main>
       </AppShell>
     </>
