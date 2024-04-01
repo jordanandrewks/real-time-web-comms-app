@@ -46,7 +46,7 @@ export default function AppShellParent({ children }: { children: any }) {
         </AppShell.Header>
 
         <AppShell.Navbar p="md">
-            <NavbarButtons />
+          <NavbarButtons />
         </AppShell.Navbar>
         <AppShell.Main>{children}</AppShell.Main>
       </AppShell>
