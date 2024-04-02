@@ -1,18 +1,29 @@
 .
+├── Dockerfile
 ├── LICENCE
 ├── README.md
 ├── app
 │   ├── globals.css
 │   ├── layout.tsx
-│   └── page.tsx
+│   ├── page.tsx
+│   └── rmq
+│       └── page.tsx
 ├── components
+│   ├── ApiStage
+│   │   └── SimpleApiFetch.tsx
+│   ├── AppShell
+│   │   └── AppShellParent.tsx
 │   ├── ColorSchemeToggle
+│   │   ├── ColorSchemeToggle.story.tsx
 │   │   └── ColorSchemeToggle.tsx
-│   └── Welcome
-│       ├── Welcome.module.css
-│       ├── Welcome.story.tsx
-│       ├── Welcome.test.tsx
-│       └── Welcome.tsx
+│   ├── ContextCollapse
+│   │   └── ContextCollapse.tsx
+│   ├── NavbarComponents
+│   │   └── NavbarButtons
+│   │       ├── NavbarButton.tsx
+│   │       └── NavbarButtons.tsx
+│   └── StageHeader
+│       └── StageHeader.tsx
 ├── docs
 │   └── project_tree.txt
 ├── jest.config.cjs
@@ -22,7 +33,6 @@
 ├── package-lock.json
 ├── package.json
 ├── postcss.config.cjs
-├── project_tree.txt
 ├── public
 │   └── favicon.svg
 ├── tailwind.config.ts
@@ -33,4 +43,4 @@
 ├── tsconfig.json
 └── yarn.lock
 
-8 directories, 26 files
+14 directories, 30 files

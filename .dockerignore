@@ -1,0 +1,9 @@
+node_modules
+.dockerignore
+.git
+.gitignore
+.next
+out
+public
+
+# ref https://cleverzone.medium.com/dockerizing-first-next-js-application-9026894df384
