@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Textarea, Divider, Button, Badge, Flex, JsonInput } from '@mantine/core';
+import { Textarea, Divider, Button, Badge, Flex, JsonInput, CopyButton } from '@mantine/core';
 import ContextCollapse from '@/components/ContextCollapse/ContextCollapse';
 
 const statusPlaceHolder = 'STATUS: ';
@@ -77,16 +77,24 @@ export default function SimpleApiFetch() {
           value={dbMessage}
         />
       </div>
-      <JsonInput
-        className="mt-5"
-        label="Debug Area [ json output ]"
-        placeholder="Textarea will autosize to fit the content"
-        validationError="Invalid JSON"
-        formatOnBlur
-        autosize
-        minRows={4}
-        disabled
-      />
+      <Flex className="mt-5" gap="sm" direction="column">
+        <JsonInput
+          className="flex-1"
+          label="Debug Area [ json output ]"
+          placeholder="Textarea will autosize to fit the content"
+          validationError="Invalid JSON"
+          formatOnBlur
+          autosize
+          disabled
+        />
+        <CopyButton value="https://mantine.dev">
+          {({ copied, copy }) => (
+            <Button variant="default" size="xs" color={copied ? 'teal' : 'blue'} onClick={copy}>
+              {copied ? 'Copied Json Output' : 'Copy Json Output'}
+            </Button>
+          )}
+        </CopyButton>
+      </Flex>
     </>
   );
 }
