@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Textarea, Divider, Button, Badge, Flex } from '@mantine/core';
+import { Textarea, Divider, Button, Badge, Flex, JsonInput } from '@mantine/core';
 import ContextCollapse from '@/components/ContextCollapse/ContextCollapse';
 
 const statusPlaceHolder = 'STATUS: ';
@@ -18,7 +18,7 @@ export default function SimpleApiFetch() {
 
   const fetchFromDb = async () => {
     /* eslint-disable no-promise-executor-return */
-    // await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000)); // Mock delay
 
     setDbMessage(value);
     console.log(value);
@@ -77,6 +77,30 @@ export default function SimpleApiFetch() {
           value={dbMessage}
         />
       </div>
+      <JsonInput
+        className="mt-5"
+        label="Debug Area [ json output ]"
+        placeholder="Textarea will autosize to fit the content"
+        validationError="Invalid JSON"
+        formatOnBlur
+        autosize
+        minRows={4}
+        disabled
+      />
     </>
   );
 }
+
+/*
+
+States:
+sending
+sent
+
+fetching
+fetched.
+
+Error
+
+Maybe a debug terminal at the bottom in json format or something??
+*/
