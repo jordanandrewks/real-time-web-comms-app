@@ -12,5 +12,3 @@ export default function HomePage() {
     </>
   );
 }
-// press button send
-// press button to read out of db

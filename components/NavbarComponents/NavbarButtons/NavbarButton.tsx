@@ -12,7 +12,7 @@ export default function NavbarButton({
   route: string;
 }) {
   return (
-    <Link href={route} className="w-full" passHref>
+    <Link href={route} className="w-full px-4" passHref>
       <Button justify="left" fullWidth leftSection={icon} variant="default" mt="md">
         {title}
       </Button>
