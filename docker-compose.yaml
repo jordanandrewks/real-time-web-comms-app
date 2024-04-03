@@ -1,0 +1,38 @@
+version: '3.8' # Use a recent version of the Compose file format
+services:
+  nextjs-app:
+    build:
+      context: . # Use the current directory as the build context
+      dockerfile: Dockerfile # Specify the name of the Dockerfile
+    ports:
+      - "3000:3000" # Map port 3000 on the host to port 3000 in the container
+    environment:
+      - NODE_ENV=development # Set environment variables
+      - MONGODB_URI=mongodb://mongodb:27017/realtimewebcomms
+    volumes:
+      - .:/usr/src/app # Mount the project directory in the container for live code changes
+      - /usr/src/app/node_modules # Use a volume for node_modules to avoid overriding the installed modules with the host's node_modules
+    depends_on:
+    - mongodb
+    networks:
+    - node-network  # container bridge
+
+  mongodb:
+    image: mongo:6-jammy
+    ports:
+      - '27017:27017'
+    volumes:
+      - dbdata6:/data/db
+    networks:
+      - node-network
+
+volumes:
+  dbdata6:
+
+networks:
+  node-network:
+    driver: bridge
+
+
+# ref https://dev.to/scaabel/containerizing-a-nextjs-application-for-development-204d
+# ref https://geshan.com.np/blog/2023/03/mongodb-docker-compose/
