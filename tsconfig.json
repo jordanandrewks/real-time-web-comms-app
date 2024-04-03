@@ -20,6 +20,6 @@
     },
     "plugins": [{ "name": "next" }]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/NavbarComponents/NavbarButtons"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/NavbarComponents/NavbarButtons", "app/api-stage/api/api.tsx"],
   "exclude": ["node_modules"]
 }

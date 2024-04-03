@@ -7,7 +7,6 @@ services:
     ports:
       - "3000:3000" # Map port 3000 on the host to port 3000 in the container
     environment:
-      - NODE_ENV=development # Set environment variables
       - MONGODB_URI=mongodb://mongodb:27017/realtimewebcomms
     volumes:
       - .:/usr/src/app # Mount the project directory in the container for live code changes
