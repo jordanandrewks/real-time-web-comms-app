@@ -2,5 +2,5 @@
 export const USE_LOCAL_SERVICES = true;
 
 export const PROJECT_ENVS = {
-  MONGO_ENV: USE_LOCAL_SERVICES ? '//mongodb:27017/realtimewebcomms' : process.env.MONGO,
+  MONGO_ENV: USE_LOCAL_SERVICES ? 'mongodb://mongodb:27017/realtimewebcomms' : process.env.MONGO,
 };

@@ -17,16 +17,19 @@ export const connectToDb = async (): Promise<void> => {
     }
 
     // Connect to the database
+    console.log(PROJECT_ENVS.MONGO_ENV);
+    
     const db = await mongoose.connect(PROJECT_ENVS.MONGO_ENV as string);
     connection.isConnected = db.connection.readyState; // adjusted to use the singular form 'connection'
 
     console.log('Mongoose is connected!');
   } catch (error) {
-    if (error instanceof Error) {
-      console.log(error.message);
-    } else {
-      console.log('An unexpected error occurred');
-    }
+    // if (error instanceof Error) {
+    //   console.log(error.message);
+    // } else {
+    //   console.log('An unexpected error occurred');
+    // }
+    console.log('An unexpected error occurred');
     throw new Error('Failed to connect to MongoDB');
   }
 };
