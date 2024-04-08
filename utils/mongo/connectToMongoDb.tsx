@@ -18,7 +18,7 @@ export const connectToDb = async (): Promise<void> => {
 
     // Connect to the database
     console.log(PROJECT_ENVS.MONGO_ENV);
-    
+
     const db = await mongoose.connect(PROJECT_ENVS.MONGO_ENV as string);
     connection.isConnected = db.connection.readyState; // adjusted to use the singular form 'connection'
 
