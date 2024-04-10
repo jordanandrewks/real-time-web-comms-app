@@ -24,11 +24,11 @@ export const connectToDb = async (): Promise<void> => {
 
     console.log('Mongoose is connected!');
   } catch (error) {
-    // if (error instanceof Error) {
-    //   console.log(error.message);
-    // } else {
-    //   console.log('An unexpected error occurred');
-    // }
+    if (error instanceof Error) {
+      console.log(error.message);
+    } else {
+      console.log('An unexpected error occurred');
+    }
     console.log('An unexpected error occurred');
     throw new Error('Failed to connect to MongoDB');
   }
