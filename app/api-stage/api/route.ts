@@ -8,23 +8,18 @@ import { SimpleMessage } from '@/utils/mongo/models/simpleMessageModel';
 
 export async function GET() {
   try {
-    console.log('inside');
-
     await connectToDb(); // Ensure the connection to the database is awaited
 
     const simpleMessage = await SimpleMessage.findOne();
 
-    console.log(simpleMessage);
-
     if (!simpleMessage) {
-      // If no banner announcement is found, send a 404 response
+      // todo - should send 404 as well! Find out how..
       return new Response(JSON.stringify({ message: 'Nothing' }));
     }
 
     return new Response(JSON.stringify(simpleMessage));
   } catch (err) {
-    console.error(err); // It's good to log the error for debugging
-
+    // todo look into https://www.youtube.com/watch?v=vrR4MlB7nBI for new way to handle responses..
     // Send a 500 status code indicating a server error
     return new Response(JSON.stringify({ message: 'Test' }));
   }
