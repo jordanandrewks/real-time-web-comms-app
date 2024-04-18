@@ -5,59 +5,75 @@ import { Textarea, Divider, Button, Badge, Flex, JsonInput, CopyButton } from '@
 import ContextCollapse from '@/components/ContextCollapse/ContextCollapse';
 
 const statusPlaceHolder = 'STATUS: ';
-const defaultStatusMessage = 'null';
+
+interface ApiResponse {
+  _id: {
+    $oid: string;
+  };
+  message: string;
+  __v: number;
+}
 
 export default function SimpleApiFetch() {
   const [value, setValue] = useState('');
+  const [statusMessage, setStatusMessage] = useState('');
   const [dbMessage, setDbMessage] = useState('');
 
   const fetchFromDb = async () => {
     try {
-      // setStatusMessage('Fetching...');
+      setStatusMessage('Fetching...');
       const response = await fetch('/api-stage/api');
-      console.log(response);
-
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const data = await response.json();
-      setDbMessage(JSON.stringify(data));
-      // setStatusMessage('Fetched successfully!');
-    } catch (error: any) {
-      // setStatusMessage(`Error: ${error.message}`);
-      setDbMessage(`Error: ${error.message}`);
+      const data = await response.json() as ApiResponse;
+      setDbMessage(JSON.stringify(data.message));
+      setStatusMessage('Fetched successfully!');
+    } catch (error: unknown) {
+      // eslint-disable-next-line no-console
+      console.error('Error:', error);
+
+      // Check if error is an instance of Error
+      if (error instanceof Error) {
+        setStatusMessage(`Error: ${error.message}`);
+      } else {
+        setStatusMessage('An unexpected error occurred.');
+      }
     }
   };
 
   const sendToDb = async () => {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 1000); // 10 seconds timeout
+
     try {
-      // setStatusMessage('Sending...');
+      setStatusMessage('Sending...');
       const response = await fetch('/api-stage/api', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ message: value }),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId);
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      // setStatusMessage('Sent successfully!');
-    } catch (error) {
-      console.log('error');
+      setStatusMessage('Sent successfully!');
+    } catch (error: unknown) {
+      clearTimeout(timeoutId);
 
-      // setStatusMessage(`Error: ${error.message}`);
+      if (error instanceof Error) {
+        setStatusMessage(`Error: ${error.message}`);
+      } else {
+        setStatusMessage('An unexpected error occurred.');
+      }
     }
   };
-  // const fetchFromDb = async () => {
-  //   /* eslint-disable no-promise-executor-return */
-  //   const x = useSimpleApi();
-  //   setDbMessage(JSON.stringify(x));
-  //   console.log(JSON.stringify(x));
-  //   return value;
-  // };
 
   return (
     <>
@@ -88,7 +104,7 @@ export default function SimpleApiFetch() {
           <Divider orientation="vertical"></Divider>
           <Badge>
             {statusPlaceHolder}
-            {defaultStatusMessage}
+            {`${statusMessage}`}
           </Badge>
           <Divider orientation="vertical"></Divider>
           <Button

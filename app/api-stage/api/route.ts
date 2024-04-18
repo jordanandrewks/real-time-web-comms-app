@@ -1,8 +1,3 @@
-// export async function GET() {
-//   return new Response(JSON.stringify({ message: 'Test' }));
-// }
-
-// import type { NextApiRequest, NextApiResponse } from 'next';
 import connectToDb from '@/utils/mongo/connectToMongoDb';
 import { SimpleMessage } from '@/utils/mongo/models/simpleMessageModel';
 
