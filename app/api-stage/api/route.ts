@@ -25,49 +25,6 @@ export async function GET() {
   }
 }
 
-// /* Find request type... it's 'any' at the moment... */
-// export async function POST(request: any) {
-//   try {
-//     // First, connect to the database
-//     await connectToDb();
-
-//     // Parse the request body to get the message data
-//     const data = await request.json();
-
-//     // Optional: Add validation or sanitation of 'data' here
-//     if (!data.message) {
-//       return new Response(JSON.stringify({ error: 'Message is required' }), {
-//         status: 400,
-//         headers: { 'Content-Type': 'application/json' },
-//       });
-//     }
-
-//     // Create a new message document
-//     const simpleMessage = new SimpleMessage({
-//       message: data.message,
-//     });
-
-//     // Save the new message to the database
-//     const savedMessage = await simpleMessage.save();
-
-//     // Return the saved message as a response
-//     return new Response(JSON.stringify(savedMessage), {
-//       status: 201, // HTTP status code 201 for created resource
-//       headers: { 'Content-Type': 'application/json' },
-//     });
-//     /* define err type... it is any but there's probably something better.... */
-//   } catch (err:any) {
-//     // Handle errors and send a response with a 500 status code
-//     return new Response(
-//       JSON.stringify({ message: 'Internal Server Error', error: err.toString() }),
-//       {
-//         status: 500,
-//         headers: { 'Content-Type': 'application/json' },
-//       }
-//     );
-//   }
-// }
-
 export async function POST(request: any) {
   try {
     // First, connect to the database
