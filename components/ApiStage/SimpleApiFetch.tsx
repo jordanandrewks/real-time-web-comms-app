@@ -30,11 +30,27 @@ export default function SimpleApiFetch() {
     }
   };
 
-  /* Mongo is Default */
   const sendToDb = async () => {
-    console.log(value);
-  };
+    try {
+      // setStatusMessage('Sending...');
+      const response = await fetch('/api-stage/api', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: value }),
+      });
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      // setStatusMessage('Sent successfully!');
+    } catch (error) {
+      console.log('error');
+
+      // setStatusMessage(`Error: ${error.message}`);
+    }
+  };
   // const fetchFromDb = async () => {
   //   /* eslint-disable no-promise-executor-return */
   //   const x = useSimpleApi();
