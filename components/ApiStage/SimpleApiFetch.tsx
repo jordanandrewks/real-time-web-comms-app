@@ -11,19 +11,37 @@ export default function SimpleApiFetch() {
   const [value, setValue] = useState('');
   const [dbMessage, setDbMessage] = useState('');
 
-  /* Mongo is Default */
-  const sendToDb = () => {
-    console.log(value);
-  };
-
   const fetchFromDb = async () => {
-    /* eslint-disable no-promise-executor-return */
-    await new Promise((resolve) => setTimeout(resolve, 2000)); // Mock delay
+    try {
+      // setStatusMessage('Fetching...');
+      const response = await fetch('/api-stage/api');
+      console.log(response);
 
-    setDbMessage(value);
-    console.log(value);
-    return value;
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setDbMessage(JSON.stringify(data));
+      // setStatusMessage('Fetched successfully!');
+    } catch (error: any) {
+      // setStatusMessage(`Error: ${error.message}`);
+      setDbMessage(`Error: ${error.message}`);
+    }
   };
+
+  /* Mongo is Default */
+  const sendToDb = async () => {
+    console.log(value);
+  };
+
+  // const fetchFromDb = async () => {
+  //   /* eslint-disable no-promise-executor-return */
+  //   const x = useSimpleApi();
+  //   setDbMessage(JSON.stringify(x));
+  //   console.log(JSON.stringify(x));
+  //   return value;
+  // };
 
   return (
     <>
