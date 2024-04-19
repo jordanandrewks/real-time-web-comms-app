@@ -11,7 +11,8 @@ services:
       - MONGODB_URI=mongodb://real-time-wc-mongodb:27017/realtimewebcomms
     volumes:
       - .:/usr/src/app # Mount the project directory in the container for live code changes
-      - /usr/src/app/node_modules # Use a volume for node_modules to avoid overriding the installed modules with the host's node_modules
+      - /usr/src/app/node_modules # Preserve node_modules that were installed inside the container
+      - /usr/src/app/.next # Preserve the .next directory that gets created during the build process
     depends_on:
       - mongodb
     networks:

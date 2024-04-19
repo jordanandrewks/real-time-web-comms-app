@@ -6,6 +6,9 @@ FROM node:20
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
+# Define environment variable
+#ENV NODE_ENV development
+
 # Copy package.json and package-lock.json to the container
 COPY package*.json ./
 
@@ -20,9 +23,6 @@ RUN npm run build
 
 # Expose the Next.js application port
 EXPOSE 3000
-
-# Define environment variable
-ENV NODE_ENV development
 
 # Start the Next.js application
 CMD ["npm", "start"]
