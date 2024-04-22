@@ -27,7 +27,7 @@ export default function SimpleApiFetch() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const data = await response.json() as ApiResponse;
+      const data = (await response.json()) as ApiResponse;
       setDbMessage(JSON.stringify(data.message));
       setStatusMessage('Fetched successfully!');
     } catch (error: unknown) {
@@ -148,17 +148,3 @@ export default function SimpleApiFetch() {
     </>
   );
 }
-
-/*
-
-States:
-sending
-sent
-
-fetching
-fetched.
-
-Error
-
-Maybe a debug terminal at the bottom in json format or something??
-*/
